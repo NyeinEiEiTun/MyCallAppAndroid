@@ -1,0 +1,30 @@
+## Synopsis
+- Phone call app used the simple alertDialog from andriod to show 2 contact numbers.
+- Used Fragment
+
+## Code Example
+- Implemented OnClickedListener in StartFragment.java
+
+private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            switch (v.getId()) {
+                case R.id.btnClickHere:
+                    Log.d("OnClicked", "You clicked the button");
+                    createAndShowAlertDialog();
+                    break;
+            }
+
+        }
+    };
+    
+- Implemented createAndShowAlertDialog, method to show alert.
+
+ if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+    //not granted to call.
+    return;
+ }else{
+    getActivity().startActivity(intent);
+ }
+ 
+ Used the above condition to check the Call permission is granted.
